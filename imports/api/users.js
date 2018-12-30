@@ -7,7 +7,7 @@ SimpleSchema.debug = true
 export const schema = new SimpleSchema({
   email: {
     type: String,
-    regEx: SimpleSchema.RegEx.Email,
+    regEx: SimpleSchema.RegEx.EmailWithTLD,
   },
   password: {
     type: String,
@@ -37,11 +37,9 @@ export function validateUser(user) {
 }
 
 // --- Server Side --- //
-
+// called from server/main.js
 // The user object is the Mongo document
 export function setServerUserValidation() {
-  Accounts.validateNewUser((user) => {
-    ValidationContext.validate({ user })
-    return true
-  })
+  Accounts.validateNewUser(validateUser)
+  return true
 }

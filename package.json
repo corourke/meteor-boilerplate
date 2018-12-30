@@ -4,37 +4,36 @@
   "scripts": {
     "start": "meteor run",
     "test": "meteor test --once --driver-package meteortesting:mocha",
+    "watch": "TEST_WATCH=1 meteor test --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",
     "bcrypt": "^3.0.2",
-    "clipboard": "^2.0.4",
     "meteor-node-stubs": "^0.4.1",
-    "moment": "^2.23.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.1",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.5.1",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.3.1",
-    "shortid": "^2.2.14",
     "simpl-schema": "^1.5.3"
   },
   "meteor": {
     "mainModule": {
       "client": "client/main.js",
       "server": "server/main.js"
-    },
-    "testModule": "tests/main.js"
+    }
   },
   "devDependencies": {
-    "eslint": "^5.8.0",
+    "eslint": "^5.11.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-mocha": "^5.2.0",
+    "eslint-plugin-react": "^7.11.1",
+    "expect": "^23.6.0"
   },
   "engines": {
     "node": "^8.11.0"
